@@ -1,0 +1,14 @@
+<div class="hero">
+  <a class="logo" href="#">
+    <div class="stick"></div>
+    <div class="stick"></div>
+    <div class="stick"></div>
+    <div class="stick"></div>
+    <span>bglo</span>
+  </a>
+
+</div>
+
+<% site.posts.forEach(function(posts){ %>
+  <a href="<%- posts.path %>"><%- posts.title %></a>
+<% }) %>

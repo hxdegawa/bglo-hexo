@@ -1,0 +1,125 @@
+.hero {
+  height: 100vh;
+  background-color: #212121;
+  box-sizing: border-box;
+  padding: 20px;
+
+  .logo {
+    position: relative;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fafafa;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 1rem 3px 1rem;
+
+    &:hover {
+      .stick:nth-child(1) {
+        transition-delay: 0s;
+        transform: translateY(0%);
+      }
+      
+      .stick:nth-child(2) {
+        transition-delay: 0s;
+        transform: translateY(0%);
+      }
+      
+      .stick:nth-child(3) {
+        transition-delay: 0s;
+        transform: translateX(calc(100%));
+      }
+      
+      .stick:nth-child(4) {  
+        transition-delay: 0s;
+        transform: translateX(calc(-100%));
+      }
+      
+      &:before {
+        bottom: 8%;
+        transition-delay: 0.2s;
+      }
+
+      &:after {
+        top: 3%;
+        transition-delay: 0.2s;
+      }
+    }
+
+    @mixin logoLineH {
+      transition: 0.3s ease;
+      transition-delay: 0.2s;
+      position: absolute;
+      height: 50%;
+      width: 100%;
+      left: 0;
+      background-color: #fafafa;
+      z-index: 1;
+    }
+    
+    @mixin logoLineV {
+      transition: 0.3s ease;
+      transition-delay: 0.2s;
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      top: 0;
+      background-color: #fafafa;
+      z-index: 1;
+    }
+
+    @mixin subLogo {
+      transition: 0.3s ease;
+      transition-delay: 0s;
+      position: absolute;
+      text-transform: uppercase;
+      font-size: inherit;
+      font-weight: inherit;
+      color: #212121;
+      pointer-events: none;
+      transform: rotateZ(-90deg);
+      letter-spacing: 3px;
+      z-index: 2;
+    }
+    
+    &:before {
+      @include subLogo;
+      content: "lo";
+      right: .7rem;
+      bottom: 100%;
+    }
+    
+    &:after {
+      @include subLogo;
+      content: "bg";
+      left: .7rem;
+      top: 100%;
+    }
+
+    .stick:nth-child(1) {
+      @include logoLineH;
+      top: 0px;
+      transform: translateY(-100%);
+    }
+    
+    .stick:nth-child(2) {
+      @include logoLineH;
+      bottom: 0px;
+      transform: translateY(calc(100% - 1px));
+    }
+
+    .stick:nth-child(3) {
+      @include logoLineV;
+      top: 0px;
+      left: calc(-50% + 1px);
+    }
+
+    .stick:nth-child(4) {
+      @include logoLineV;
+      top: 0px;
+      right: calc(-50% + 1px);
+    }
+  }
+}
